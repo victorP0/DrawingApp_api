@@ -9,7 +9,7 @@ const DrawingAppRouter = require("./DrawingAppRouter");
 const validateBearerToken = require("./validate-bearer-token");
 const DrawingAppService = require("./DrawingAppService");
 
-//app.use(validateBearerToken)
+app.use(validateBearerToken)
 app.use(helmet());
 app.use(morgan(morganOption));
 app.use(cors());
