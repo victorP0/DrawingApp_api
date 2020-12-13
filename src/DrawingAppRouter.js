@@ -17,8 +17,6 @@ DrawingAppRouter.route("/")
       .then((arts) => {
         res.json(arts);
       })
-      .catch(next);
-    res.send("loaded");
   })
   .post(bodyParser, (req, res, next) => {
     const { author, description, src, key } = req.body;
@@ -29,7 +27,10 @@ DrawingAppRouter.route("/")
 
     const newArt = {
       id: uuid(),
-      name,
+      author,
+      description,
+      src,
+      key
     };
 
     DrawingAppService.insertArt(knex, newArt)
