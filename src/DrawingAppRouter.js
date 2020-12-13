@@ -13,7 +13,7 @@ const knex = knexbase({
 
 DrawingAppRouter.route("/")
   .get((req, res, next) => {
-    DrawingAppService.getAllArt(knex)
+    DrawingAppService.getAllArts(knex)
       .then((arts) => {
         res.json(arts);
       })
