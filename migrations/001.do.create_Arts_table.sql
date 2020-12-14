@@ -1,4 +1,4 @@
--- CREATE DATABASE DrawingApp;
+--CREATE DATABASE DrawingApp;
 
 CREATE TABLE Arts(
     id VARCHAR (100) PRIMARY KEY,

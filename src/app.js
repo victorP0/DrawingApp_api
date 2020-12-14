@@ -9,12 +9,12 @@ const DrawingAppRouter = require("./DrawingAppRouter");
 const validateBearerToken = require("./validate-bearer-token");
 const DrawingAppService = require("./DrawingAppService");
 
+const app = express();
 app.use(validateBearerToken)
 app.use(helmet());
-app.use(morgan(morganOption));
 app.use(cors());
-const app = express();
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
+app.use(morgan(morganOption));
 
 app.use(DrawingAppRouter);
 

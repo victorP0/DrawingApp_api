@@ -3,7 +3,7 @@ const { v4: uuid } = require("uuid");
 const DrawingAppRouter = express.Router();
 const bodyParser = express.json();
 const logger = require("./logger");
-const DrawingAppService = require("./noteful-service");
+const DrawingAppService = require("./DrawingAppService");
 const knexbase = require("knex");
 
 const knex = knexbase({
@@ -15,8 +15,10 @@ DrawingAppRouter.route("/")
   .get((req, res, next) => {
     DrawingAppService.getAllArts(knex)
       .then((arts) => {
+
         res.json(arts);
       })
+      .catch(e => console.log(e))
   })
   .post(bodyParser, (req, res, next) => {
     const { author, description, src, key } = req.body;
