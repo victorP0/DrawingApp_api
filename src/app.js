@@ -10,9 +10,12 @@ const validateBearerToken = require("./validate-bearer-token");
 const DrawingAppService = require("./DrawingAppService");
 
 const app = express();
-app.use(validateBearerToken)
+
 app.use(helmet());
+app.options('*', cors());
 app.use(cors());
+app.use(validateBearerToken);
+
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(morgan(morganOption));
 
