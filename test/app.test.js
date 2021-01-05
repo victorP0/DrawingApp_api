@@ -11,3 +11,13 @@ describe('App', () => {
       .expect(200)
   })
 })
+
+describe('App', () => {
+  it('POST / responds with 200', () => {
+    return supertest(app)
+      .post('/')
+      .set({ 'Authorization': `Bearer ${API_TOKEN}` })
+      .query({author: 'test'})
+      .expect(200)
+  })
+})

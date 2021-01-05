@@ -20,7 +20,7 @@ DrawingAppRouter.route("/")
       .catch(e => console.log(e))
   })
   .post(bodyParser, (req, res, next) => {
-    const { author, description, src, dateAdded, key } = req.body;
+    const { author, description, src, dateadded, key } = req.body;
 
     if (!author) {
       return res.status(400).send("Author name required");
@@ -31,7 +31,7 @@ DrawingAppRouter.route("/")
       author,
       description,
       src,
-      dateAdded,
+      dateadded,
       key
     };
 
