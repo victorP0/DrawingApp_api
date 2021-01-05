@@ -5,5 +5,6 @@ CREATE TABLE Arts(
     author TEXT NOT NULL,
     description TEXT,
     src TEXT,
-    key TEXT
+    key TEXT,
+    dateAdded TIMESTAMP WITHOUT TIME ZONE
 );

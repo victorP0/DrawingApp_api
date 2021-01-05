@@ -13,15 +13,14 @@ const knex = knexbase({
 
 DrawingAppRouter.route("/")
   .get((req, res, next) => {
-    DrawingAppService.getAllArts(knex)
+    DrawingAppService.getRecentArts(knex)
       .then((arts) => {
-
         res.json(arts);
       })
       .catch(e => console.log(e))
   })
   .post(bodyParser, (req, res, next) => {
-    const { author, description, src, key } = req.body;
+    const { author, description, src, dateAdded, key } = req.body;
 
     if (!author) {
       return res.status(400).send("Author name required");
@@ -32,6 +31,7 @@ DrawingAppRouter.route("/")
       author,
       description,
       src,
+      dateAdded,
       key
     };
 
