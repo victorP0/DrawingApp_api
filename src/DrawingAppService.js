@@ -9,6 +9,7 @@ const DrawingAppService = {
       .select("*")
       .from("arts")
       .whereRaw("arts.dateadded > (now() - interval '7 days')");
+      
     },
 
     insertArt(knex, newArt) {
