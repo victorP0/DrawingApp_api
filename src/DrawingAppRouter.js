@@ -11,7 +11,7 @@ const knex = knexbase({
   connection: process.env.DATABASE_URL,
 });
 
-DrawingAppRouter.route("/")
+DrawingAppRouter.route("/drawing")
   .get((req, res, next) => {
     DrawingAppService.getRecentArts(knex)
       .then((arts) => {
@@ -39,7 +39,7 @@ DrawingAppRouter.route("/")
       .then((art) => {
         res
           .status(201)
-          .location(`/`)
+          .location(`/drawing`)
           .json(newArt)
           .send("Art created");
       })
